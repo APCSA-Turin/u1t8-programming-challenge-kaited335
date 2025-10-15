@@ -2,70 +2,77 @@ package com.example.project;
 
 public class Student {
     // INSTANCE VARIABLES (private)
-    // first name (String)
-    // last name (String)
-    // graduation year (int)
-    // sum of test scores (double).. should initialize at 0.0
-    // test score count (int) ..should initialize at 0
-    // highest test score (double).. should initialize at 0.0
+    private String firstName; // first name (String)
+    private String lastName; // last name (String)
+    private int gradYear; // graduation year (int)
+    private double sumOfTestScores; // sum of test scores (double).. should initialize at 0.0
+    private int testScoreCount; // test score count (int) ..should initialize at 0
+    private double highestTestScore; // highest test score (double).. should initialize at 0.0
  
     // constructor
     public Student(String firstName, String lastName, int gradYear) {
-        //implement code here!
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gradYear = gradYear;
+        sumOfTestScores = 0.0;
+        testScoreCount = 0;
+        highestTestScore = 0.0;
 
     }
  
     // returns firstName
     public String getFirstName() {
-        //implement code here!
-        return "";
+        return firstName;
     }
  
     // returns lastName
     public String getLastName() {
-        //implement code here!
-        return "";
+        return lastName;
     }
  
     public double getHighestTestScore() {
-        //implement code here!
-        return 50.0; //random double number
+        return highestTestScore;
     }
 
     public int getTestScoreCount(){
-        //implement code here!
-        return 0;
+        return testScoreCount;
     }
 
     public int getGradYear(){
-        //implement code here!
-        return 0;
+        return gradYear;
     }
  
     // sets gradYear to newGradYear
     public void setGradYear(int newGradYear) {
-        //implement code here!
+        gradYear = newGradYear;
     }
  
     // adds newTestScore to accumulatedTestScores
     // and increments testScoreCount by 1
     // set new highest test score 
     public void addTestScore(double newTestScore) {
-        //implement code here!
+        sumOfTestScores = sumOfTestScores + newTestScore;
+        testScoreCount ++;
+        if (newTestScore > highestTestScore) {
+            highestTestScore = newTestScore;
+        }
     }
  
     // returns true if the student's average test score is greater
     // than or equal to 65; returns false otherwise (see Note 2 below)
     public boolean isPassing() {
-        //implement code here!
+        if (averageTestScore() >= 65) {
+            return true;
+        } else {
         return false;
+        }
     }
  
     // returns the Student's average test score as the
     // quotient of accumulatedTestScores and testScoreCount
     public double averageTestScore() {
-        //implement code here!
-        return 50.0; //random double number
+        double average = (double) sumOfTestScores/testScoreCount;
+        return average;
     }
  
     // this method prints all info of a Student object to the console 
